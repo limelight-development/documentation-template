@@ -11,10 +11,10 @@ rm "$style_dir/out/*.css" || true
 for in_file in "$style_dir"/*.scss; do
 	declare out_file=$(echo "$in_file" | perl -p -e 's/\.scss$/.css/g' -)
 	sass --no-source-map "$in_file" "$out_file"
-    mv "$out_file" out/
+    mv "$out_file" "$style_dir"/out/
 done;
 for in_file in "$style_dir"/*.css; do
-    cp "$in_file" out/
+    cp "$in_file" "$style_dir"/out/
 done;
 
 ## Compile CSS to a single file.
